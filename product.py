@@ -6,14 +6,15 @@ class Item:
         self.category = self.get_category()
 
     def get_category(self):
-        categories = ["food", "furniture", "electronics", "cosmetics"]
-        
-        category_items = [["rice", "wheat", "dal"], ["table", "sofa", "chair"], ["mobile", "tv", "tablet"], ["cream", "perfume", "lotion"]]
-        
-        l = len(category_items)
-        
-        for i in range(l):
-            if self.name in category_items[i]:
-                return categories[i]
-        
+
+        categories = {
+            "food-grains": ["rice", "wheat", "dal"],
+            "furniture": ["table", "sofa", "chair"],
+            "electronics": ["mobile", "tv", "tablet"],
+            "cosmetics": ["cream", "perfume", "lotion"]
+        }
+        for key, value in categories.items():
+            if self.name in value:
+                return key
+
         return None
